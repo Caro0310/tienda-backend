@@ -10,7 +10,6 @@ import javax.persistence.Table;
 public class Clientes {
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long cedula_cliente;
 	
 	@Column(name = "direccion_cliente")

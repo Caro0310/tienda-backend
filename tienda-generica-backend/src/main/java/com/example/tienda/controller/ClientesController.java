@@ -15,7 +15,7 @@ import com.example.tienda.repository.ClientesRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/v2")
+@RequestMapping("/api/v22")
 public class ClientesController {
 	
 	@Autowired

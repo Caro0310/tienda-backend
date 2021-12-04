@@ -10,7 +10,6 @@ import javax.persistence.Table;
 public class Proveedores {
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long nitproveedor;
 	
 	@Column(name = "ciudad_proveedor")

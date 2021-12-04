@@ -10,7 +10,6 @@ import javax.persistence.Table;
 public class Usuarios {
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long cedula_usuario;
 	
 	@Column(name = "email_usuario")
