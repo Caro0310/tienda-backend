@@ -19,6 +19,7 @@ public class VentasJsonSerializer extends JsonSerializer<Ventas>{
 	public void serialize(Ventas value, JsonGenerator gen, SerializerProvider serializers)
 			throws IOException, JsonProcessingException{
 
+		gen.writeStartObject();
 		gen.writeNumberField("codigo_venta", value.getCodigo_venta());
 		gen.writeNumberField("cedula_cliente", value.getClientes().getCedula_cliente());
 		gen.writeStringField("nombre_cliente", value.getClientes().getNombre_cliente());
@@ -26,6 +27,6 @@ public class VentasJsonSerializer extends JsonSerializer<Ventas>{
 		gen.writeNumberField("ivaventa", value.getIvaventa());
 		gen.writeNumberField("total_venta", value.getTotal_venta());
 		gen.writeNumberField("valor_venta", value.getValor_venta());
-		
+		gen.writeEndObject();
 	}
 }

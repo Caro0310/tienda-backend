@@ -2,10 +2,13 @@ package com.example.tienda.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "productos")
@@ -17,8 +20,8 @@ public class Productos {
 	@Column(name = "ivacompra")
 	private double ivacompra;
 	
-	@ManyToOne
-	//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@JoinColumn(name = "nitproveedor")
 	Proveedores proveedores;
 	

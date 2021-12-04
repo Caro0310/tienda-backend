@@ -34,13 +34,8 @@ public class DetalleVentasController {
 
 	@PostMapping("/guardar")
 	public ResponseEntity<?> create(@RequestBody DetalleVentas nuevo) {
-		
-		return repository.findById(nuevo.getCodigo_detalle_venta()).map(usuario -> {
-			return ResponseEntity.ok(nuevo);
-		}).orElseGet(() -> {
-			;
-			return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(nuevo));
-		});
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(nuevo));
+
 	}
 
 	@GetMapping("/{id}")

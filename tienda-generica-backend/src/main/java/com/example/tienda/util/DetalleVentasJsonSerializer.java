@@ -18,6 +18,7 @@ public class DetalleVentasJsonSerializer extends JsonSerializer<DetalleVentas>{
 	public void serialize(DetalleVentas value, JsonGenerator gen, SerializerProvider serializers)
 			throws IOException, JsonProcessingException {
 
+		gen.writeStartObject();
 		gen.writeNumberField("codigo_detalle_venta", value.getCodigo_detalle_venta());
 		gen.writeNumberField("cantidad_producto", value.getCantidad_producto());
 		gen.writeNumberField("codigo_producto", value.getProductos().getCodigo_producto());
@@ -25,7 +26,7 @@ public class DetalleVentasJsonSerializer extends JsonSerializer<DetalleVentas>{
 		gen.writeNumberField("valor_total", value.getValor_total());
 		gen.writeNumberField("valor_venta", value.getValor_venta());
 		gen.writeNumberField("valoriva", value.getValoriva());
-		
+		gen.writeEndObject();
 	}
 
 }

@@ -2,12 +2,17 @@ package com.example.tienda.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "ventas")
@@ -17,11 +22,13 @@ public class Ventas {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long codigo_venta;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties ({"hibernateLazyInitializer", "handler"})
 	@JoinColumn(name = "cedula_cliente")
 	Clientes clientes;
 	
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@JoinColumn(name = "cedula_usuario")
 	Usuarios usuarios;
 	
