@@ -62,17 +62,17 @@ public class UsuariosController {
 	@PutMapping("/actualizar")
 	public ResponseEntity<?> replace(@RequestBody Usuarios nuevo) {
 
-		Usuarios actualizado = repository.findById(nuevo.getCedula_usuario()).map(user -> {
+		return repository.findById(nuevo.getCedula_usuario()).map(user -> {
 			user.setCedula_usuario(nuevo.getCedula_usuario());
 			user.setEmail_usuario(nuevo.getEmail_usuario());
 			user.setNombre_usuario(nuevo.getNombre_usuario());
 			user.setPassword(nuevo.getPassword());
 			user.setUsuario(nuevo.getUsuario());
-			return repository.save(user);
+			return ResponseEntity.ok(repository.save(user));
 		}).orElseGet(() -> {
-			return repository.save(nuevo);
+			return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(nuevo));
 		});
-		return ResponseEntity.ok(actualizado);
+
 	}
 
 	@DeleteMapping("/eliminar/{id}")

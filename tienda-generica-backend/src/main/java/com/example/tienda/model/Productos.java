@@ -18,6 +18,7 @@ public class Productos {
 	private double ivacompra;
 	
 	@ManyToOne
+	//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@JoinColumn(name = "nitproveedor")
 	Proveedores proveedores;
 	
